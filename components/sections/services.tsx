@@ -1,15 +1,8 @@
-import {
-  Megaphone,
-  Share2,
-  MessageSquare,
-  LayoutTemplate,
-  Filter,
-  Sprout,
-} from 'lucide-react'
+import { Share2 } from 'lucide-react'
 
 const services = [
   {
-    icon: Megaphone,
+    image: '/logos/facebook.jpg',
     title: 'Facebook Ads Lead Generation',
     description:
       'Laser-targeted Facebook ad campaigns engineered to capture high-intent leads at the lowest possible cost per acquisition.',
@@ -21,25 +14,25 @@ const services = [
       'Scroll-stopping creative and precise audience targeting that turns Instagram engagement into real, qualified inquiries.',
   },
   {
-    icon: MessageSquare,
+    image: '/logos/whatsapp.jpg',
     title: 'WhatsApp Marketing',
     description:
       'Direct, high-converting WhatsApp campaigns and automation that start conversations and close deals faster.',
   },
   {
-    icon: LayoutTemplate,
+    image: '/logos/landing-page.jpg',
     title: 'Landing Page Design',
     description:
       'Conversion-focused landing pages designed to load fast, build trust, and turn visitors into leads.',
   },
   {
-    icon: Filter,
+    image: '/logos/funnel.jpg',
     title: 'Funnel Optimization',
     description:
       'We map and refine every step of your funnel to plug leaks and maximize conversions from click to customer.',
   },
   {
-    icon: Sprout,
+    image: '/logos/target.jpg',
     title: 'Lead Nurturing',
     description:
       'Automated follow-up sequences that keep your brand top-of-mind and move leads steadily toward a sale.',
@@ -69,9 +62,19 @@ export function Services() {
               key={service.title}
               className="group relative overflow-hidden rounded-2xl border border-border bg-background p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_12px_40px_-12px_var(--color-primary)]"
             >
-              <div className="grid size-12 place-items-center rounded-xl bg-primary/15 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                <service.icon className="size-6" aria-hidden="true" />
-              </div>
+              {service.image ? (
+                <div className="grid size-12 place-items-center overflow-hidden rounded-xl bg-background">
+                  <img
+                    src={service.image || "/placeholder.svg"}
+                    alt={`${service.title} logo`}
+                    className="size-12 object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="grid size-12 place-items-center rounded-xl bg-primary/15 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <service.icon className="size-6" aria-hidden="true" />
+                </div>
+              )}
               <h3 className="mt-5 font-heading text-lg font-semibold text-foreground">
                 {service.title}
               </h3>
